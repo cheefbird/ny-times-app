@@ -9,6 +9,7 @@ import {
 
 import { sampleData } from "../../helper/TopNewsSample";
 import StandardArticle from "../components/StandardArticle";
+import FeaturedArticle from "../components/FeaturedArticle";
 
 export default class TopNews extends Component {
   state = {
@@ -27,7 +28,7 @@ export default class TopNews extends Component {
   renderItem = ({ item }) => (
     <TouchableOpacity>
       <View style={styles.listItem}>
-        <StandardArticle />
+        <FeaturedArticle />
       </View>
     </TouchableOpacity>
   );
