@@ -8,6 +8,7 @@ import {
 } from "react-native";
 
 import { sampleData } from "../../helper/TopNewsSample";
+import StandardArticle from "../components/StandardArticle";
 
 export default class TopNews extends Component {
   state = {
@@ -26,7 +27,7 @@ export default class TopNews extends Component {
   renderItem = ({ item }) => (
     <TouchableOpacity>
       <View style={styles.listItem}>
-        <Text>{item.title}</Text>
+        <StandardArticle />
       </View>
     </TouchableOpacity>
   );
