@@ -46,6 +46,7 @@ export default class TopNews extends Component {
 
 const styles = StyleSheet.create({
   list: {
+    flex: 1,
     marginTop: 60,
     borderTopColor: "#f2f2f2",
     borderTopWidth: 1
@@ -54,6 +55,6 @@ const styles = StyleSheet.create({
     borderBottomColor: "#f2f2f2",
     borderBottomWidth: 1,
     flex: 1,
-    padding: 5
+    padding: 8
   }
 });

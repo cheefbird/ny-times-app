@@ -21,10 +21,14 @@ export default function StandardArticle(
         }}
       />
       <View style={styles.textContainer}>
-        <Text>Subsection Text</Text>
-        <Text>Title Text will Go Here</Text>
+        <Text style={styles.sectionText}>Subsection Text</Text>
+        <Text style={styles.titleText}>
+          Title Text will Go Here and It Just Might be Long
+        </Text>
         <Text>
-          This will be a subtitle, or abstract, which gives brief info.
+          This will be a subtitle, or abstract, which gives brief info. This
+          will be a subtitle, or abstract, which gives brief info. This will be
+          a subtitle, or abstract, which gives brief info.
         </Text>
       </View>
     </View>
@@ -46,8 +50,10 @@ export default function StandardArticle(
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexDirection: "row",
-    justifyContent: "flex-start"
+    justifyContent: "space-between",
+    alignItems: "center"
   },
   thumbnail: {
     width: 75,
@@ -55,6 +61,15 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     flex: 1,
-    flexDirection: "column"
+    marginLeft: 10
+  },
+  sectionText: {
+    fontSize: 10,
+    fontStyle: "italic"
+  },
+  titleText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginVertical: 8
   }
 });
