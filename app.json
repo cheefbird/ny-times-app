@@ -1,5 +1,7 @@
 {
   "expo": {
+    "name": "NY Times App",
+    "slug": "ny-times-app",
     "sdkVersion": "27.0.0"
   }
 }
