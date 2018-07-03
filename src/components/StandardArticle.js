@@ -2,15 +2,15 @@ import React from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
 import PropTypes from "prop-types";
 
-export default function StandardArticle(
-  {
-    //   title,
-    //   subtitle,
-    //   section,
-    //   subsection,
-    //   imageUri
-  }
-) {
+export default function StandardArticle({
+  title,
+  subtitle,
+  section,
+  subsection,
+  imageUri
+}) {
+  const sectionText = `${section}/${subsection}`;
+
   return (
     <View style={styles.container}>
       <Image
@@ -21,32 +21,26 @@ export default function StandardArticle(
         }}
       />
       <View style={styles.textContainer}>
-        <Text style={styles.sectionText}>Subsection Text</Text>
-        <Text style={styles.titleText}>
-          Title Text will Go Here and It Just Might be Long
-        </Text>
-        <Text>
-          This will be a subtitle, or abstract, which gives brief info. This
-          will be a subtitle, or abstract, which gives brief info. This will be
-          a subtitle, or abstract, which gives brief info.
-        </Text>
+        <Text style={styles.sectionText}>{sectionText}</Text>
+        <Text style={styles.titleText}>{title}</Text>
+        <Text>{subtitle}</Text>
       </View>
     </View>
   );
 }
 
-// StandardArticle.propTypes = {
-//   title: PropTypes.string.isRequired,
-//   subtitle: PropTypes.string.isRequired,
-//   section: PropTypes.string,
-//   subsection: PropTypes.string,
-//   imageUri: PropTypes.string.isRequired
-// };
+StandardArticle.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  section: PropTypes.string,
+  subsection: PropTypes.string,
+  imageUri: PropTypes.string.isRequired
+};
 
-// StandardArticle.defaultProps = {
-//   section: "",
-//   subsection: ""
-// };
+StandardArticle.defaultProps = {
+  section: "",
+  subsection: ""
+};
 
 const styles = StyleSheet.create({
   container: {
