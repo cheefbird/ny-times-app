@@ -1,3 +1,4 @@
+import _ from "lodash";
 import React, { Component } from "react";
 import {
   StyleSheet,
@@ -6,29 +7,29 @@ import {
   FlatList,
   TouchableOpacity
 } from "react-native";
+import { connect } from "react-redux";
 
-import { sampleData } from "../../helper/TopNewsSample";
+import { fetchTopNews } from "../actions";
 import StandardArticle from "../components/StandardArticle";
-import FeaturedArticle from "../components/FeaturedArticle";
+// import FeaturedArticle from "../components/FeaturedArticle";
 
-export default class TopNews extends Component {
-  state = {
-    loading: true,
-    error: false,
-    articles: []
-  };
-
-  componentDidMount() {
-    const { results } = sampleData;
-    this.setState({ articles: results });
+class TopNews extends Component {
+  UNSAFE_componentWillMount() {
+    this.props.fetchTopNews();
   }
 
-  keyExtractor = ({ short_url }) => short_url;
+  keyExtractor = (item, index) => index.toString();
 
   renderItem = ({ item }) => (
     <TouchableOpacity>
       <View style={styles.listItem}>
-        <FeaturedArticle />
+        <StandardArticle
+          title={item.title}
+          subtitle={item.abstract}
+          section={item.section}
+          subsection={item.subsection}
+          imageUri={item.multimedia[4].url}
+        />
       </View>
     </TouchableOpacity>
   );
@@ -36,7 +37,7 @@ export default class TopNews extends Component {
   render() {
     return (
       <FlatList
-        data={this.state.articles}
+        data={this.props.topNewsArticles}
         keyExtractor={this.keyExtractor}
         renderItem={this.renderItem}
         style={styles.list}
@@ -59,3 +60,16 @@ const styles = StyleSheet.create({
     padding: 8
   }
 });
+
+const mapStateToProps = state => {
+  const topNewsArticles = _.map(state.topNewsArticles, val => {
+    return { ...val };
+  });
+
+  return { topNewsArticles };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchTopNews }
+)(TopNews);
