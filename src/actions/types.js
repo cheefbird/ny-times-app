@@ -1,2 +1,2 @@
 // Fetch Top Articles
-export const FETCH_TOP_ARTICLES = "fetch_top_articles";
+export const FETCH_TOP_NEWS = "fetch_top_news";
