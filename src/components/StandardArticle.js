@@ -13,13 +13,7 @@ export default function StandardArticle({
 
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.thumbnail}
-        source={{
-          uri:
-            "https://static01.nyt.com/images/2018/07/03/us/politics/03dc-scotus/03dc-scotus-thumbStandard.jpg"
-        }}
-      />
+      <Image style={styles.thumbnail} source={{ uri: imageUri }} />
       <View style={styles.textContainer}>
         <Text style={styles.sectionText}>{sectionText}</Text>
         <Text style={styles.titleText}>{title}</Text>

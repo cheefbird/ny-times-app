@@ -28,7 +28,7 @@ class TopNews extends Component {
           subtitle={item.abstract}
           section={item.section}
           subsection={item.subsection}
-          imageUri={item.multimedia[4].url}
+          imageUri="https://static01.nyt.com/images/2018/07/02/briefing/03ambriefing-asia-SS-slide-4QC4/03ambriefing-asia-SS-slide-4QC4-thumbStandard.jpg"
         />
       </View>
     </TouchableOpacity>
